@@ -1,8 +1,6 @@
-from django.urls import path
-
-from . import views
+from django.urls import include, path
+from webhook import github_webhook
 
 urlpatterns = [
-  path("hello_function", views.hello_world),
-  path("hello_class", views.HelloWorldView.as_view()),
+    path("", github_webhook, name="github_webhook"),
 ]
