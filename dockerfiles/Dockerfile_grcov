@@ -11,6 +11,10 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
 git
 
+RUN rustup component add llvm-tools
+
+ENV RUSTFLAGS=-Cinstrument-coverage
+
 # Avoid caching issues
 ARG commit_hash
 RUN echo "Cloning grcov repository at commit: ${commit_hash}"
@@ -27,10 +31,11 @@ WORKDIR /app/grcov
 # Checkout the specific commit
 RUN git checkout ${commit_hash}
 
-RUN cargo build --release
+# keep temporary for debugging the container
+RUN cargo build
 
 CMD ["tail", "-f", "/dev/null"]
-
+# CMD ["cargo", "build"]
 
 
 

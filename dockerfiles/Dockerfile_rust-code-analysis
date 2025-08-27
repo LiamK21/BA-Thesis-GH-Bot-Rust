@@ -24,9 +24,8 @@ WORKDIR /app/code-analysis
 # Checkout the specific commit
 RUN git checkout ${commit_hash}
 
-RUN cargo build --release
-
-CMD ["tail", "-f", "/dev/null"]
+CMD ["cargo", "build"]
+#CMD ["tail", "-f", "/dev/null"]
 
 
 
