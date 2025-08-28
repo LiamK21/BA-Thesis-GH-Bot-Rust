@@ -346,19 +346,7 @@
     },
     "author_association": "CONTRIBUTOR",
     "auto_merge": null,
-    "active_lock_reason": null,
-    "merged": false,
-    "mergeable": false,
-    "rebaseable": false,
-    "mergeable_state": "dirty",
-    "merged_by": null,
-    "comments": 1,
-    "review_comments": 1,
-    "maintainer_can_modify": true,
-    "commits": 5,
-    "additions": 201,
-    "deletions": 25,
-    "changed_files": 5
+    "active_lock_reason": null
   },
   "repository": {
     "owner": {
