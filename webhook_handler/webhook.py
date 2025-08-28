@@ -5,12 +5,16 @@ import logging
 import threading
 from pathlib import Path
 
-from django.http import (HttpResponse, HttpResponseForbidden,
-                         HttpResponseNotAllowed, JsonResponse)
+from django.http import (
+    HttpResponse,
+    HttpResponseForbidden,
+    HttpResponseNotAllowed,
+    JsonResponse,
+)
 from django.views.decorators.csrf import csrf_exempt
 
 from .bot_runner import BotRunner
-from .config import Config
+from .services.config import Config
 
 bootstrap = logging.getLogger("bootstrap")
 
