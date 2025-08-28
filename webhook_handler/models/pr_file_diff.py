@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from webhook_handler.helper import git_diff
+
 
 @dataclass
 class PullRequestFileDiff:
@@ -49,7 +51,7 @@ class PullRequestFileDiff:
                 is_in_src_folder = True
                 break
 
-        return is_in_src_folder and parts[-1].endswith(".js")
+        return is_in_src_folder and parts[-1].endswith(".rs")
 
     @property
     def is_non_source_code_file(self) -> bool:
@@ -75,7 +77,7 @@ class PullRequestFileDiff:
         """
 
         return git_diff.unified_diff_with_function_context(
-            self.before, self.after, f_name=self.name
+            self.before, self.after, fname=self.name
         )
 
     def unified_test_diff(self) -> str:
